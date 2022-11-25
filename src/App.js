@@ -1,7 +1,6 @@
 import { React, useEffect, useState } from "react";
 import Card from "./components/Card";
 import FocusedCard from "./components/FocusedCard";
-import MoonDark from "./images/moon-dark-icon.svg";
 
 function App() {
   const [countries, setCountries] = useState();
@@ -70,10 +69,6 @@ function App() {
     <div className="App">
       <header className="shadow-accent">
         <h3 style={{ fontWeight: "800" }}>Where in the World?</h3>
-        <div className="header-darkmode">
-          <img src={MoonDark} alt="moon" className="header-darkmode-icon" />
-          <p>Dark Mode</p>
-        </div>
       </header>
       {focusedCountry ? (
         <FocusedCard
