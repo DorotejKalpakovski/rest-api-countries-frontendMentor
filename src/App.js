@@ -40,12 +40,15 @@ function App() {
     const countriesSearch = countriesFiltered.filter((country) =>
       country.name.common.toLowerCase().includes(search.toLowerCase())
     );
-    return countriesSearch.map((country) => {
+    return countriesSearch.sort((a, b) => {
+      return a.name.common.localeCompare(b.name.common);
+    }).map((country) => {
       const flag = country.flags.png;
       const name = country.name.common;
       const { population, region } = country;
       const capital = country.capital;
       const cca3 = country.cca3;
+      const continent = country.continents;
 
       return (
         <Card
@@ -54,6 +57,7 @@ function App() {
           name={name}
           pop={population}
           region={region}
+          continent={continent}
           capital={capital}
           onClick={() => {
             focusCountry(cca3);
